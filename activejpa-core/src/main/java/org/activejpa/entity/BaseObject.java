@@ -70,6 +70,6 @@ class BaseObject {
 	}
 	
 	protected static EntityManager getEntityManager() {
-		return JPA.instance.getDefaultConfig().getContext().getEntityManager();
+		return JPA.instance.getCurrentOrDefaultConfig().getContext().getEntityManager();
 	}
 }

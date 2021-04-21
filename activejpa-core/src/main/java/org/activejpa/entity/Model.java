@@ -304,7 +304,7 @@ public abstract class Model extends BaseObject {
 	}
 	
 	protected static <T> T execute(Executor<T> executor, boolean readOnly) {
-		JPAContext context = JPA.instance.getDefaultConfig().getContext();
+		JPAContext context = JPA.instance.getCurrentOrDefaultConfig().getContext();
 		boolean beganTxn = false;
 		if (! context.isTxnOpen()) {
 			context.beginTxn();

@@ -55,6 +55,11 @@ public class JPAConfig {
 		currentContext.remove();
 	}
 
+	public boolean isContextInitialised(){
+		JPAContext context = currentContext.get();
+		return context != null;
+	}
+
 	/**
 	 * @return the name
 	 */

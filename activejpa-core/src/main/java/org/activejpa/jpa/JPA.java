@@ -113,4 +113,26 @@ public class JPA {
 	public String getCacheableHint() {
 		return cacheableHint;
 	}
+
+
+	public JPAConfig getCurrentOrDefaultConfig(){
+		for(JPAConfig config : configs.values()){
+			if(config.isContextInitialised()){
+				return config;
+			}
+		}
+		return getDefaultConfig();
+	}
+
+	public List<JPAConfig> getAllInitialisedConfigs(){
+		List<JPAConfig> jpaConfigs = new ArrayList<>();
+		for(JPAConfig config : configs.values()){
+			if(config.isContextInitialised()){
+				jpaConfigs.add(config);
+			}
+		}
+		return jpaConfigs;
+	}
+
+
 }
