@@ -142,8 +142,10 @@ public class Filter {
 	}
 	
 	Filter setPage(Query query) {
-		query.setFirstResult((getPageNo() - 1) * getPerPage());
-		query.setMaxResults(getPerPage());
+		if(getPerPage() != Integer.MAX_VALUE) {
+			query.setFirstResult((getPageNo() - 1) * getPerPage());
+			query.setMaxResults(getPerPage());
+		}
 		return this;
 	}
 	
